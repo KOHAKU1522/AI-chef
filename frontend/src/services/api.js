@@ -1,6 +1,10 @@
 import axios from 'axios';
 
-const API_URL = import.meta.env.VITE_API_URL || 'https://ai-chef-ov88.onrender.com/api';
+let API_URL = import.meta.env.VITE_API_URL || 'https://ai-chef-ov88.onrender.com/api';
+if (API_URL && !API_URL.endsWith('/api') && !API_URL.endsWith('/api/')) {
+  // Netlify環境変数の末尾に /api が抜けていた場合の対策
+  API_URL = API_URL.replace(/\/$/, '') + '/api';
+}
 
 /**
  * Gemini APIを利用してレシピを生成する
