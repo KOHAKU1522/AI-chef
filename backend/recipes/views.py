@@ -90,8 +90,9 @@ class GenerateRecipeView(APIView):
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
         except Exception as e:
-            print(f"Gemini API Error: {str(e)}")
+            error_detail = f"Gemini API Error: {str(e)}"
+            print(error_detail)
             return Response(
-                {"error": "レシピの生成中にエラーが発生しました。"},
+                {"error": f"レシピの生成中にエラーが発生しました。詳細: {error_detail}"},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
