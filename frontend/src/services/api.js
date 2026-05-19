@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api';
+const API_URL = import.meta.env.VITE_API_URL || 'https://ai-chef-ov88.onrender.com/api';
 
 /**
  * Gemini APIを利用してレシピを生成する
